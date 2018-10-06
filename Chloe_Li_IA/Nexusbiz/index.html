@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<!--Best viewed on chrome!!!!-->
+<meta charset="utf-8">
+<title>Nexus Business Broking</title>
+<script src="sheets/font-awesome-icons.txt"></script>
+<script src="sheets/scrollingscript.txt"></script>
+<link rel="stylesheet" type="text/css" href="sheets/style.css">
+<script src="sheets/sticky.txt" type="text/javascript"></script>
+<!--jquery for slider-->
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+</head>
+<body>
+<div id="thetheoryofeverything">
+
+<div id="header">
+	<div id="nexustitle">Nexus Business Brokers</div>
+    <div id="threeterms">
+    <table>
+        <td>Property Sales</td>
+        <td>Property Management</td>
+        <td>Business Brokers</td>
+    </table>
+    </div>
+    
+    
+<div id="sticky-anchor"></div>
+ 
+	<div id="sticky">
+        <nav><a href="index.html" title="home">home</a>
+        <a href="for.sale.html" title="For Sale">For Sale</a>
+        <a href="confidentiality.agreement.html" title="Confidentiality Agreement">Confidentiality Agreement</a>
+        <a href="appraisal.html" title="Free Appraisal">Appraisal</a>
+        <a href="company.profile.html" title="Company profile">Company Profile</a>
+        <a href="contact.us.html" title="Contact Us">Contact us</a>
+        </nav>
+	</div>
+</div>
+
+<div id="headerphoto">
+<div id="shortdescription"> We have over 10 years of experience in buying and selling businesses with success.</div>
+<img src="images/restaurant_header.2.PNG" width="100%">
+</div>
+
+
+<div id="content">
+<div class="title">
+<center>We assist both Vendors and Purchasers in the process of selling and buying businesses </center>
+</div>
+
+<div id="description">
+<table>
+	<td>
+We provide services to the following groups of clients:
+<ul>
+<li>Vendors - business owners who wish to sell their business</li>
+<li>Purchasers - businesses and individuals who wish to acquire a business</li>
+<li>Franchisors - franchise chain owners</li>
+<li>Franchisees - individuals who own and run a business under a franchise operation</li>
+</ul>
+</td>
+<td>
+We assist both Vendors and Purchasers in the process of selling and buying businesses and are specialists in:
+<ul>
+<li>Franchised businesses</li>
+<li>Newsagents</li>
+<li>Cafes and restaurants</li>
+<li>Real estate businesses and rent rolls</li>
+</ul>
+</td>
+</table>
+<center><h1> We pride ourselves in delivering excellent services. Come and give us a call to discuss your needs.</h1></center>
+<!--Start of Slider --> 
+<div class="quotetitle">Approximate pricing for our service</div>
+<img src="images/index.cost.jpg" width="100%">
+</div>
+<div class="quote">
+<p>
+<center>Adjust the slider according to estimated selling price of your business to retrieve a commission price.</center>
+</p>
+
+<p>
+	<label>Business estimated Selling Price: $</label> <input type="text" id="commission" value="0" />
+</p>
+	<div class="priceSlider"></div>
+<p>
+	<div style="text-align: right;"><label>Commission amount: $ </label>
+	<input type="text" id="total" /></div>
+</p>
+
+<script> 
+
+//defines slider
+$(".priceSlider").slider({
+  min: 0,
+  max: 1500000,
+  value: 0,
+  step: 10000,
+  slide: function(event, ui) {  
+    var Asset = $("#commission").val(ui.value);
+	var Comm;
+    
+	Asset = ($('#commission').val());
+
+//calculates the price of commission
+	
+if (Asset <= 100000) {
+        Comm = Asset * 0.1;
+    } 
+		else if ((Asset <= 250000) && (Asset > 100000)) {
+            Comm = (10000 + (Asset - 100000) * 0.02) ;
+        }
+		
+		else if ((Asset <= 400000) && (Asset > 250000)) {
+            Comm = (13000 + (Asset - 250000) * 0.025) ;
+        }
+        else if ((Asset <= 870000) && (Asset > 400000)){
+            Comm = (16000 + ((Asset - 400000) * 0.0325));
+        }
+		
+		else if ((Asset <= 1500000) && (Asset > 870000)){
+            Comm = (29800 + ((Asset - 870000) * 0.037));
+        }
+		
+		else {
+			Comm = (54200 + ((Asset - 1500000) * 0.045));
+		};
+//Prints the commisison in the input with the id total fixed to two decimal places	
+	
+    $("#total").val((Comm).toFixed(2));
+  }
+});
+
+</script>
+</div>
+</div>
+ 
+</body>
+</html>
